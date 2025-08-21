@@ -16,12 +16,21 @@ int main() {
         }
     }
 
-    for (int i = 11; i > 0; i--) {
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < i; j++) {
+            result += arr[i][j];
+        }
+    }
 
+    for (int i = 6; i < 12; i++) {
+        int cols = 11 - i;
+        for (int j = 0; j < cols; j++) {
+            result += arr[i][j];
+        }
     }
 
     if (operation == 'M') {
-        result = result / 12;
+        result = result / 30;
     }
 
     cout << fixed << setprecision(1) << result << endl;
