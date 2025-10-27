@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -17,20 +18,25 @@ bool method(const student &a, const student &b) {
     );
 }
 
+
 int main() {
 
     int N;
-    cin >> N;
-    student arr[N];
+    while(cin >> N) {
+        vector<student> arr;
 
-    for (int i = 0; i < N; i++) {
-        cin >> arr[i].name >> arr[i].region >> arr[i].cost;
-    }
+        for (int i = 0; i < N; i++) {
+            student temp;
+            cin >> temp.name >> temp.region >> temp.cost;
+            arr.push_back(temp);
+        }
 
-    sort(arr, arr+N, method);
+        sort(arr.begin(), arr.end(), method);
 
-    for (int i = 0; i < N; i++) {
-        cout << arr[i].name << endl;
+        for (student i : arr) {
+            cout << i.name << endl;
+        }
+
     }
 
     return 0;
